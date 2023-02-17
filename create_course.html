@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+<title>Create New Course</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Create New Course</h1>
+        <br />
+        <form action="#" th:action="@{/save}" th:object="${course1}"
+            method="post">
+ 
+            <table class= "table table-striped table bordered">
+<!--                 <tr> -->
+<!--                     <td>course_id:</td> -->
+<!--                     <td><input type="text" th:field="*{course_id}" /></td> -->
+<!--                 </tr> -->
+                <tr>
+                    <td>course_description:</td>
+                    <td><input type="text" th:field="*{course_description}" /></td>
+                </tr>
+                <tr>
+                    <td>course_name:</td>
+                    <td><input type="text" th:field="*{course_name}" /></td>
+                </tr>
+                <tr>
+                    <td>course_num_participants:</td>
+                    <td><input type="text" th:field="*{course_num_participants}" /></td>
+                </tr>
+                <tr>
+                    <td>course_semester:</td>
+                    <td><input type="text" th:field="*{course_semester}" /></td>
+                </tr>
+                 <tr>
+                    <td>course_professor:</td>
+                    <td><input type="text" th:field="*{course_professor}" /></td>
+                </tr> 
+<!--                 <tr> -->
+<!--                     <td>professor_id:</td> -->
+<!--                     <td><input type="text" th:field="*{fk_professor_id}" /></td> -->
+<!--                 </tr>                                                            -->
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

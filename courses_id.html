@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Professor Courses</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container text-center">
+		<div>
+			<form th:action="@{/Logout}" method="post">
+				<p>
+					welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+				</p>
+				<input type="submit" value="Sign out" />
+			</form>
+		</div>
+	</div>
+	<div align="center">
+		<h1><em>List of Professor courses</em>&nbsp;</h1>
+		<p>&nbsp;</p>
+		<span style="color: #008000;">MY COURSE LIST&nbsp;</span><br /><hr /><hr /><a href="/create_course">Create New Course</a><br /><br /> <a href="/search">show STUDENTS tables per Course</a><hr /><br /><br />
+		<table border="1" cellpadding ="10">
+			<thead>
+					<tr style="height: 47.7656px;">
+						<th style="width: 76px; height: 47.7656px;">course ID</th>
+						<th style="width: 76px; height: 47.7656px;">description</th>
+						<th style="width: 76px; height: 47.7656px;"> NAME</th>
+						<th style="width: 76px; height: 47.7656px;">number of participants</th>
+						<th style="width: 76px; height: 47.7656px;">semester</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each = "courses_id: ${listCourses}">
+						<td th:text = "${courses_id.course_id}">course ID  </td>
+						<td th:text = "${courses_id.course_description}">description</td>
+						<td th:text = "${courses_id.course_name}"> name</td>
+						<td th:text = "${courses_id.course_num_participants}">number of participants </td>
+						<td th:text = "${courses_id.course_semester}">semester </td>
+						
+						<td>
+								<a th:href="@{'/edit/' + ${courses_id.course_id}}">edit a Course</a>
+						</td>
+						<td>
+								<a th:href="@{'/delete/' + ${courses_id.course_id}}">Delete a course</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</body>
+</html>
