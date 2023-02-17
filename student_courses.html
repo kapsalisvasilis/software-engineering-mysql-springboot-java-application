@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+  <head>
+    <meta charset="ISO-8859-1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>SEARCH</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 align="center">search in all students</h2>
+      <form th:action="@{/search}" method="get">
+        <input type="text" name="keyword" th:value="${keyword}" placeholder="find by course name " size="50">
+        <button type="submit" class="btn btn-info">Search</button>
+        <button type="submit" class="btn btn-info">Reset</button>
+      </form>
+      <a href="/create_student">Add New Student</a><br /><br />
+      		<a href="/redirect">Home Page </a>
+      		<br/><br/>  
+      <table class="table table-bordered table-sm mt-2">
+        <thead>
+          <thead>
+            <tr>
+              <th>course name </th>
+              <th>grade</th>
+              <th> exam_grade</th>
+              <th>project_grade</th>
+              <th>semester</th>
+              <th>student name </th>
+              <th>edit this student</th>
+              <th>delete this student </th>
+            </tr>
+          </thead>
+        <tbody>
+          <tr th:each="students_id: ${list}">
+            <td th:text="${students_id.course_chosen}">course name </td>
+            <td th:text="${students_id.exam_grade}">grade</td>
+            <td th:text="${students_id.project_grade}"> grade exam</td>
+            <td th:text="${students_id.grade}">grade project </td>
+            <td th:text="${students_id.semester_count}">semester </td>
+            <td th:text="${students_id.student_name}">student name </td>
+            		<td>
+								<a th:href="@{'/editS/' + ${students_id.student_id}}">edit a Course</a>
+						</td>
+						<td>
+								<a th:href="@{'/deleteS/' + ${students_id.student_id}}">Delete a course</a>
+						</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

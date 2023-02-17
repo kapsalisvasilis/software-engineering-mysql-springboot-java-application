@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Course current Students</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div align="center">
+      <h3>List course students:</h3>
+      <form>Type the name of the course you want to find students for, here! </br>
+        <input type='' text'' name='' searchField'' />
+      </form>
+      <a href="/create_course">Add a student </a>
+      <br />
+      <br />
+      <a href="/redirect">Home Page </a>
+      <br />
+      <br />
+      <table border="1" cellpadding="20">
+        <thead>
+          <tr>
+            <th>course name </th>
+            <th>grade</th>
+            <th> exam_grade</th>
+            <th>project_grade</th>
+            <th>semester</th>
+            <th>student name </th>
+            <th>edit this student</th>
+            <th>delete this student </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="students_id: ${student}">
+            <td th:text="${students_id.course_chosen}">course name </td>
+            <td th:text="${students_id.exam_grade}">grade</td>
+            <td th:text="${students_id.project_grade}"> grade exam</td>
+            <td th:text="${students_id.grade}">grade project </td>
+            <td th:text="${students_id.semester_count}">semester </td>
+            <td th:text="${students_id.student_name}">student name </td>
+            <!--             						<td>  -->
+            <!--             								<a th:href="@{'/editS/' + ${students_id:.student_name:}}">edit a Course</a>  -->
+            <!--             						</td>  -->
+            <!--              						<td> -->
+            <!--              								<a th:href="@{'/deleteS/' + ${students_id:.student_name:}}">Delete a course</a>  -->
+            <!--              						</td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

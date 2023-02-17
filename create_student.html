@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+<title>Create New sTUDENT</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Create New Student</h1>
+        <br />
+        <form action="#" th:action="@{/saveS}" th:object="${stud}"
+            method="post">
+ 
+            <table class= "table table-striped table bordered">
+<!--                 <tr> -->
+<!--                     <td>course_id:</td> -->
+<!--                     <td><input type="text" th:field="*{course_id}" /></td> -->
+<!--                 </tr> -->
+                <tr>
+                    <td>course :</td>
+                    <td><input type="text" th:field="*{course_chosen}" /></td>
+                </tr>
+                <tr>
+                    <td>EXAM GRADE:</td>
+                    <td><input type="text" th:field="*{exam_grade}" /></td>
+                </tr>
+                <tr>
+                    <td>OVERALL GRADE:</td>
+                    <td><input type="text" th:field="*{grade}" /></td>
+                </tr>
+                <tr>
+                    <td>semester:</td>
+                    <td><input type="text" th:field="*{semester_count}" /></td>
+                </tr>
+                 <tr>
+                    <td>student_name:</td>
+                    <td><input type="text" th:field="*{student_name}" /></td>
+                </tr> 
+<!--                 <tr> -->
+<!--                     <td>professor_id:</td> -->
+<!--                     <td><input type="text" th:field="*{fk_professor_id}" /></td> -->
+<!--                 </tr>                                                            -->
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
